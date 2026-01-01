@@ -1,0 +1,38 @@
+/* Navbar container */
+  .navbar {
+  position: fixed;/* colle la navbar */
+  width: 100%;          /* toute la largeur */
+  background-color: #092046;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000; 
+  top: 0;
+  left: 0; 
+    
+}
+
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* bleu clair */
+}
+
+/* Links container */
+.links {
+  display: flex;
+  gap: 25px;
+}
+
+/* Links style */
+.links a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
