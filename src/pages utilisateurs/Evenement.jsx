@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 import axios from "axios";
 import "./Evenement.css"
 
@@ -7,6 +9,8 @@ import "./Evenement.css"
 export default function Evenement() {
      const [dataEvenements, setDataEvenements] = useState([]);
      const [category, setCategory] = useState("all");
+      const dispatch = useDispatch();
+
 
     axios
       .get("https://694d3629ad0f8c8e6e200b5b.mockapi.io/api/productEvenement")
@@ -25,7 +29,8 @@ export default function Evenement() {
     
     return (
     <div className="events-page">
-      <h2>Événements disponibles</h2>
+      <h2>events.ma - Le guichet des tickets et de Billetterie au Maroc et en Afrique
+</h2>
 
       {/* FILTRE */}
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -43,10 +48,10 @@ export default function Evenement() {
             <h2>{event.price} MAD </h2>
             <p>{event.date}</p>
             <p>{event.location}</p>
-            <button>Ajouter au panier</button>
+            <button  onClick={() => dispatch(addToCart(event))}>Ajouter au panier</button>
           </div>
         ))}
-        
+
       </div>
       
     </div>
